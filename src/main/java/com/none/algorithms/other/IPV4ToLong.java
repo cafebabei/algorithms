@@ -26,9 +26,6 @@ import java.util.regex.Pattern;
  */
 public class IPV4ToLong {
 
-    /**
-     * regex.
-     */
     public static Predicate<String> predicate = Pattern.compile("\\d{1,3}\\s*(\\.\\s*\\d{1,3}\\s*){3}").asPredicate();
 
     public static long parseIPV4ToLong(String ipv4Str) {

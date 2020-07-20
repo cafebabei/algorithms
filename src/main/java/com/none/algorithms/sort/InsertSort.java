@@ -23,6 +23,7 @@ public class InsertSort extends SortTemplate {
 
     }
 
+    @Override
     public void sort(Comparable[] a) {
         int N = a.length;
         for (int i = 1; i < N; i++) {
