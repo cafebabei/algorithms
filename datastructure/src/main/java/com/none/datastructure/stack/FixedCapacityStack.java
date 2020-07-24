@@ -11,10 +11,12 @@ public class FixedCapacityStack<T> implements IStack<T> {
     private int size = 0;
 
     public FixedCapacityStack(Class<T> type, int capacity) {
+        assert capacity > 0;
         this.items = (T[]) Array.newInstance(type, capacity);
     }
 
     public FixedCapacityStack(int capacity) {
+        assert capacity > 0;
         this.items = (T[]) new Object[capacity];
     }
 
