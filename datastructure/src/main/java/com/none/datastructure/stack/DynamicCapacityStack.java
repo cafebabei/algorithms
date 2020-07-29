@@ -2,6 +2,10 @@ package com.none.datastructure.stack;
 
 import java.util.Arrays;
 
+/**
+ * 动态扩容栈
+ * push pop操作或通过数组拷贝动态调整数组大小，但是耗时与数组大小成正比
+ */
 public class DynamicCapacityStack<T> implements IStack<T> {
 
     private T[] items;
