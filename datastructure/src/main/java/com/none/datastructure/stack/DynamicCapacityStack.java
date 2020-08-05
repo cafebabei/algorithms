@@ -76,6 +76,7 @@ public class DynamicCapacityStack<T> implements IStack<T>, Iterable<T> {
 
         @Override
         public T next() {
+            i--;
             return pop();
         }
     }

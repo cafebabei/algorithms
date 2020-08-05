@@ -56,11 +56,12 @@ public class FixedCapacityStack<T> implements IStack<T>, Iterable<T> {
 
         @Override
         public boolean hasNext() {
-            return i == 0;
+            return i > 0;
         }
 
         @Override
         public T next() {
+            i--;
             return pop();
         }
     }
