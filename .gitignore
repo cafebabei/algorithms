@@ -8,3 +8,5 @@
 out
 gen
 /target/
+/.gradle/
+.DS_Store
