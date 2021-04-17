@@ -1,6 +1,7 @@
 package com.test.signature;
 
 
+import lombok.var;
 import org.apache.commons.lang3.StringUtils;
 
 import java.net.URLDecoder;
@@ -27,49 +28,46 @@ public class QueryParams {
     static final String BIZ_SOURCE_CODE = "bizSourceCode";
     static final String APP_SOURCE_CODE = "appSourceCode";
 
-//    public static QueryParams of(String origin) {
-//        var params = new QueryParams();
-//
-//        params.map = parseToQueryParams(origin);
-//        params.extractCoreParams();
-//
-//        return params;
-//    }
-//
-//
-//
-//    public static TreeMap<String, String> parseToQueryParams(String queryString) {
-//        var params = new TreeMap<String, String>();
-//
-//        if (StringUtils.isEmpty(queryString)) {
-//            return params;
-//        }
-//
-//        String[] splitQuestionMark = queryString.split("\\?");
-//        if (splitQuestionMark.length > 1) {
-//            queryString = splitQuestionMark[1];
-//        }
-//
-//        for (var queryExp : queryString.split("&")) {
-//            int equalMarkIndex = queryExp.indexOf('=');
-//
-//            String k = "";
-//            String v = "";
-//
-//            if (equalMarkIndex > 0) {
-//                k = queryExp.substring(0, equalMarkIndex);
-//                v = queryExp.substring(equalMarkIndex + 1);
-//            }
-//
-//            if (!StringUtils.isEmpty(k)) {
-//                v = decodeUrlParam(v);
-//                params.put(k, v);
-//            }
-//        }
-//
-//        return params;
-//    }
+    public static QueryParams of(String origin) {
+        QueryParams params = new QueryParams();
 
+        params.map = parseToQueryParams(origin);
+        params.extractCoreParams();
+
+        return params;
+    }
+
+    public static TreeMap<String, String> parseToQueryParams(String queryString) {
+        var params = new TreeMap<String, String>();
+
+        if (StringUtils.isEmpty(queryString)) {
+            return params;
+        }
+
+        String[] splitQuestionMark = queryString.split("\\?");
+        if (splitQuestionMark.length > 1) {
+            queryString = splitQuestionMark[1];
+        }
+
+        for (var queryExp : queryString.split("&")) {
+            int equalMarkIndex = queryExp.indexOf('=');
+
+            String k = "";
+            String v = "";
+
+            if (equalMarkIndex > 0) {
+                k = queryExp.substring(0, equalMarkIndex);
+                v = queryExp.substring(equalMarkIndex + 1);
+            }
+
+            if (!StringUtils.isEmpty(k)) {
+                v = decodeUrlParam(v);
+                params.put(k, v);
+            }
+        }
+
+        return params;
+    }
 
 
     void extractCoreParams() {
@@ -83,8 +81,8 @@ public class QueryParams {
 
     boolean checkRequiredParams() {
         return !StringUtils.isEmpty(portalSignature)
-                && !StringUtils.isEmpty(portalTimestamp)
-                && !StringUtils.isEmpty(partnerCode);
+            && !StringUtils.isEmpty(portalTimestamp)
+            && !StringUtils.isEmpty(partnerCode);
     }
 
     public String prepareSignString() {
@@ -107,9 +105,9 @@ public class QueryParams {
 
     public static String parseToQueryString(Map<String, String> map, String... exclude) {
         return map.entrySet().stream()
-                .filter(entry -> !Arrays.asList(exclude).contains(entry.getKey()))
-                .map(entry ->
-                        String.format("%s=%s", entry.getKey(), entry.getValue()))
-                .collect(Collectors.joining("&"));
+            .filter(entry -> !Arrays.asList(exclude).contains(entry.getKey()))
+            .map(entry ->
+                String.format("%s=%s", entry.getKey(), entry.getValue()))
+            .collect(Collectors.joining("&"));
     }
 }
