@@ -1,4 +1,4 @@
-package com.test.ds.stack;
+package com.test.datastructure.stack;
 
 import java.util.Arrays;
 import java.util.Iterator;
