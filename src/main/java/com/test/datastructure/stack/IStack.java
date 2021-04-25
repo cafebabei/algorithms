@@ -1,4 +1,4 @@
-package com.test.ds.stack;
+package com.test.datastructure.stack;
 
 public interface IStack<T> {
     void push(T item);
