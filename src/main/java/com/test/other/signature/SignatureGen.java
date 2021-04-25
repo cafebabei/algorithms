@@ -1,4 +1,4 @@
-package com.test.signature;
+package com.test.other.signature;
 
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.lang3.StringUtils;
@@ -22,7 +22,7 @@ public class SignatureGen {
             Arrays.stream(args[0].split(",")).filter(s -> "userCode".equalsIgnoreCase(s.split("=")[0])).findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("userCode")), System.getenv().get("XR_AES_IV"));
         String encodedAesUserCode = URLEncoder.encode(aesUserCode, "UTF-8");
-        String urlString = com.test.signature.QueryParams.of("recommendId=TJDXR20170704114456DWQUN"
+        String urlString = com.test.other.signature.QueryParams.of("recommendId=TJDXR20170704114456DWQUN"
             + "&portalTimestamp=1586861782786&partnerCode=1001&partnerUserCode=" + encodedAesUserCode + "&bizSourceCode"
             + "=biz_online_axamedicalconcierge&appSourceCode=app_2b_wminiprogram&project=axa&subProject=mc&memberId=30")
             .prepareSignString();

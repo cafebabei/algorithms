@@ -1,4 +1,4 @@
-package com.test.signature;
+package com.test.other.signature;
 
 
 import lombok.var;

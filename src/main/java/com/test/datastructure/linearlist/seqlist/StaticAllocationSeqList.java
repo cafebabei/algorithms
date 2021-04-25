@@ -1,9 +1,9 @@
-package com.test.datastructure.linearlist;
+package com.test.datastructure.linearlist.seqlist;
 
 /**
  * 静态分配线性表.
  */
-public class StaticAllocationLinearList {
+public class StaticAllocationSeqList {
 
     /**
      * array length.
@@ -14,7 +14,7 @@ public class StaticAllocationLinearList {
      */
     private int[] data;
 
-    StaticAllocationLinearList(int initSize) {
+    StaticAllocationSeqList(int initSize) {
         this.length = 0;
         data = new int[initSize];
     }
@@ -54,8 +54,8 @@ public class StaticAllocationLinearList {
     /**
      * 在指定位置插入元素
      *
-     * @param bitOrder
-     * @param element
+     * @param bitOrder 元素位序
+     * @param element 元素
      * @return
      */
     public Boolean insert(int bitOrder, int element) {
@@ -71,7 +71,7 @@ public class StaticAllocationLinearList {
     /**
      * 删除指定位置的元素
      *
-     * @param bitOrder
+     * @param bitOrder 元素位序
      * @return
      */
     public Boolean delete(int bitOrder) {

@@ -1,4 +1,4 @@
-package com.test.datastructure.linearlist;
+package com.test.datastructure.linearlist.seqlist;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -6,13 +6,13 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class StaticAllocationLinearListTest {
+class StaticAllocationSeqListTest {
 
-    private StaticAllocationLinearList list;
+    private StaticAllocationSeqList list;
 
     @BeforeEach
     void setUp() {
-        list = new StaticAllocationLinearList(10);
+        list = new StaticAllocationSeqList(10);
         list.insert(1, 1);
         list.insert(1, 2);
         list.insert(1, 3);
