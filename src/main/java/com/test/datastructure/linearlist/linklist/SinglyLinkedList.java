@@ -1,5 +1,7 @@
 package com.test.datastructure.linearlist.linklist;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.Objects;
 
 public class SinglyLinkedList {
@@ -20,20 +22,11 @@ public class SinglyLinkedList {
      * @return
      */
     public Boolean insertWithHeadNode(SinglyLinkedList headNode, int bitOrder, String element) {
-        if (bitOrder < 1 || Objects.isNull(headNode)) return false;
-        SinglyLinkedList pNode = headNode;
-        //当前pNode指定第几个节点
-        int j = 0;
-        //循环找到第bitOrder-1个节点
-        while (pNode != null && j < bitOrder - 1) {
-            pNode = pNode.next;
-            j++;
-        }
-        if (Objects.isNull(pNode)) return false;
+        //获取当前位序的前驱节点
+        SinglyLinkedList pNode = getElement(headNode, bitOrder - 1);
         //插入新节点
         return insertNextNode(pNode, element);
     }
-
 
     /**
      * 不带头节点的按位序插入
@@ -106,15 +99,8 @@ public class SinglyLinkedList {
      * @return
      */
     public Boolean deleteNode(SinglyLinkedList headNode, int bitOrder) {
-        if (bitOrder < 1 || Objects.isNull(headNode)) return false;
-        SinglyLinkedList pNode = headNode;
-        //当前pNode指定第几个节点
-        int j = 0;
-        //循环找到第bitOrder-1个节点
-        while (pNode != null && j < bitOrder - 1) {
-            pNode = pNode.next;
-            j++;
-        }
+        //寻找前驱节点
+        SinglyLinkedList pNode = getElement(headNode, bitOrder - 1);
         if (pNode.next == null) return false;
         //删除节点
         pNode.next = pNode.next.next;
@@ -134,5 +120,32 @@ public class SinglyLinkedList {
         node.next = node.next.next;
         node.data = tempNode.data;
         return true;
+    }
+
+    /**
+     * 带有头节点的按位查找
+     *
+     * @param headNode
+     * @param bitOrder
+     * @return
+     */
+    public SinglyLinkedList getElement(SinglyLinkedList headNode, int bitOrder) {
+        if (bitOrder == 0) return headNode;
+        if (bitOrder < 0) return null;
+        SinglyLinkedList node = headNode;
+        int currentPosition = 0;
+        while (node != null && currentPosition < bitOrder) {
+            node = node.next;
+            currentPosition++;
+        }
+        return node;
+    }
+
+    public SinglyLinkedList locateElement(SinglyLinkedList headNode, String elementData) {
+        SinglyLinkedList node = headNode;
+        while (node != null && !StringUtils.equals(node.data, elementData)) {
+            node = node.next;
+        }
+        return node;
     }
 }
