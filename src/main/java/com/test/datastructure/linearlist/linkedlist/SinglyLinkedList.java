@@ -1,4 +1,4 @@
-package com.test.datastructure.linearlist.linklist;
+package com.test.datastructure.linearlist.linkedlist;
 
 import org.apache.commons.lang3.StringUtils;
 
