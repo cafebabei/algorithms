@@ -55,7 +55,7 @@ public class StaticAllocationSeqList {
      * 在指定位置插入元素
      *
      * @param bitOrder 元素位序
-     * @param element 元素
+     * @param element  元素
      * @return
      */
     public Boolean insert(int bitOrder, int element) {

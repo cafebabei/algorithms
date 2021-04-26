@@ -1,7 +1,5 @@
 package com.test.datastructure.linearlist.seqlist;
 
-import java.util.ArrayList;
-
 /**
  * 动态分配线性表-可扩容
  */
@@ -39,7 +37,6 @@ public class DynamicAllocationSeqList {
     public Boolean insert(int bitOrder, int element) {
         if (bitOrder > length + 1 || bitOrder < 1)
             throw new IllegalArgumentException();
-        ArrayList a = new ArrayList();
         if (length == size()) resize();
         for (int i = length; i > bitOrder - 1; i--) {
             data[i] = data[i - 1];
@@ -53,7 +50,7 @@ public class DynamicAllocationSeqList {
      * 扩容
      */
     private void resize() {
-        int newSize = size() + size() >> 1;
+        int newSize = size() + (size() >> 1);
         int[] newData = new int[newSize];
         for (int i = 0; i < size(); i++) {
             newData[i] = data[i];
@@ -61,5 +58,4 @@ public class DynamicAllocationSeqList {
 //        data = Arrays.copyOf(data, newSize);
         data = newData;
     }
-
 }
