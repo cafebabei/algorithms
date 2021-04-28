@@ -38,7 +38,7 @@ public class QueryParams {
     }
 
     public static TreeMap<String, String> parseToQueryParams(String queryString) {
-        var params = new TreeMap<String, String>();
+        TreeMap params = new TreeMap<String, String>();
 
         if (StringUtils.isEmpty(queryString)) {
             return params;
@@ -49,7 +49,7 @@ public class QueryParams {
             queryString = splitQuestionMark[1];
         }
 
-        for (var queryExp : queryString.split("&")) {
+        for (String queryExp : queryString.split("&")) {
             int equalMarkIndex = queryExp.indexOf('=');
 
             String k = "";
