@@ -55,7 +55,7 @@ package com.test.leetcode.linkedlist;
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
-class Solution01 {
+class LinkedList01 {
     public static class ListNode {
         int val;
         ListNode next;
