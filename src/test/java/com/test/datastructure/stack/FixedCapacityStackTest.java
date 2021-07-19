@@ -1,5 +1,6 @@
 package com.test.datastructure.stack;
 
+import com.test.datastructure.stack.seq.FixedCapacityStack;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

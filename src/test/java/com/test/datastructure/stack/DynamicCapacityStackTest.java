@@ -1,5 +1,6 @@
 package com.test.datastructure.stack;
 
+import com.test.datastructure.stack.seq.DynamicCapacityStack;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;

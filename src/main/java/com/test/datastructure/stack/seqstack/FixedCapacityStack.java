@@ -1,4 +1,6 @@
-package com.test.datastructure.stack;
+package com.test.datastructure.stack.seq;
+
+import com.test.datastructure.stack.IStack;
 
 import java.lang.reflect.Array;
 import java.util.Iterator;
