@@ -1,3 +1,5 @@
+package com.test.datastructure.stack.linkedstack;
+
 import com.test.datastructure.stack.IStack;
 
 public class LinkedStack<T> implements IStack<T>

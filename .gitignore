@@ -11,4 +11,4 @@ gen
 /build/
 /.gradle/
 .DS_Store
-/build/
+/.settings/
