@@ -1,15 +1,13 @@
 package com.test.datastructure.linearlist.linkedlist;
 
-import org.apache.commons.lang3.StringUtils;
-
 import java.util.Objects;
 
-public class SinglyLinkedList {
+public class SinglyLinkedList<T> {
 
-    private String data;
+    private T data;
     private SinglyLinkedList next;
 
-    public SinglyLinkedList(String data) {
+    public SinglyLinkedList(T data) {
         this.data = data;
     }
 
@@ -21,7 +19,7 @@ public class SinglyLinkedList {
      * @param element  插入元素
      * @return
      */
-    public Boolean insertWithHeadNode(SinglyLinkedList headNode, int bitOrder, String element) {
+    public Boolean insertWithHeadNode(SinglyLinkedList headNode, int bitOrder, T element) {
         //获取当前位序的前驱节点
         SinglyLinkedList pNode = getElement(headNode, bitOrder - 1);
         //插入新节点
@@ -36,7 +34,7 @@ public class SinglyLinkedList {
      * @param element  插入元素
      * @return
      */
-    public Boolean insertWithNoHeadNode(SinglyLinkedList headNode, int bitOrder, String element) {
+    public Boolean insertWithNoHeadNode(SinglyLinkedList headNode, int bitOrder, T element) {
         if (bitOrder < 1 || Objects.isNull(headNode)) return false;
         if (bitOrder == 1) {
             SinglyLinkedList head = new SinglyLinkedList(element);
@@ -64,7 +62,7 @@ public class SinglyLinkedList {
      * @param element
      * @return
      */
-    public Boolean insertNextNode(SinglyLinkedList pNode, String element) {
+    public Boolean insertNextNode(SinglyLinkedList pNode, T element) {
         if (pNode == null) return false;
         SinglyLinkedList newNode = new SinglyLinkedList(element);
         newNode.next = pNode.next;
@@ -82,7 +80,7 @@ public class SinglyLinkedList {
      * @param element
      * @return
      */
-    public Boolean insertPriorNode(SinglyLinkedList node, String element) {
+    public Boolean insertPriorNode(SinglyLinkedList node, T element) {
         if (node == null) return false;
         SinglyLinkedList newNode = new SinglyLinkedList(node.data);
         newNode.next = node.next;
@@ -141,9 +139,9 @@ public class SinglyLinkedList {
         return node;
     }
 
-    public SinglyLinkedList locateElement(SinglyLinkedList headNode, String elementData) {
+    public SinglyLinkedList locateElement(SinglyLinkedList headNode, T elementData) {
         SinglyLinkedList node = headNode;
-        while (node != null && !StringUtils.equals(node.data, elementData)) {
+        while (node != null && !node.data.equals(elementData)) {
             node = node.next;
         }
         return node;

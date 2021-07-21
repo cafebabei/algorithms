@@ -1,4 +1,4 @@
-package com.test.datastructure.stack.seq;
+package com.test.datastructure.stack.seqstack;
 
 import com.test.datastructure.stack.IStack;
 

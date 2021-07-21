@@ -20,9 +20,6 @@ import java.util.regex.Pattern;
  * "1[Space]72.168.5.1" is not a valid input. Should report an error.
  * 3. Please provide unit tests.
  *
- * @author chenxiang
- * @version 2019-07-1515:55
- * @since jdk_1.8.0_144
  */
 public class IPV4ToLong {
 

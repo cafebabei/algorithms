@@ -1,11 +1,11 @@
 package com.test.datastructure.queue;
 
-public interface IQueue<T>{
+public interface IQueue<T extends Object>{
 
     /**
      * 入队
      */
-    void enQueue(T item);
+    boolean enQueue(T item);
 
     /**
      * 出队
