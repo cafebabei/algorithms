@@ -28,6 +28,10 @@ public class LinkedQueue<T> implements IQueue<T> {
         LinkedNode firstNode = front.next;
         if (firstNode == null) return null;
         front.next = firstNode.next;
+        //如果出队元素为rear节点， 需要修改rear指针
+        if (firstNode == rear) {
+            rear = null;
+        }
         return (T) firstNode.data;
     }
 
